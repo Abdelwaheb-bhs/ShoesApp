@@ -6,8 +6,10 @@ import 'providers/counterProvider.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
+      
       create: (context) => Counter(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Counter App',
         home: HomePage(),
       ),

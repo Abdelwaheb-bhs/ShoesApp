@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../ui_helper/helperFunctions.dart';
 import 'dart:math' as math;
 
+// ignore: must_be_immutable
 class UpperContainer extends StatelessWidget {
   List<String> myImages = [
     "assets/images/upper_two.png",
@@ -23,8 +24,9 @@ class UpperContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         gradient: const LinearGradient(
           colors: [
-            Color.fromRGBO(31, 30, 30, 1),
-            Color.fromRGBO(219, 57, 12, 1),
+             Color.fromRGBO(224, 223, 198, 1),
+            Color.fromRGBO(62, 77, 27, 1),
+           
             // Color.fromRGBO(154, 137, 114, 0.8),
           ],
           begin: Alignment.topLeft,
@@ -45,7 +47,7 @@ class UpperContainer extends StatelessWidget {
                   style: HelperFunctions().weight500size15(),
                 ),
                 Text(
-                  "Nike Air\nMax 90",
+                  "Black Buckle\n Boot",
                   style: HelperFunctions().weight500size15(
                     giveSize: 40,
                     giveWeight: FontWeight.w900,
@@ -71,7 +73,10 @@ class UpperContainer extends StatelessWidget {
             ),
           ),
           Transform.rotate(
-              angle: -math.pi / 10, child: Image.asset(myImages[giveIndex])),
+              angle: -math.pi / 10, child: Container(
+                height: 700,
+                width: 100,
+                child: Image.asset("assets/images/IMG-20241130-WA0002-removebg-preview.png"))),
         ],
       ),
     );

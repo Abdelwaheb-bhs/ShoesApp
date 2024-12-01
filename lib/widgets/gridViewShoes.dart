@@ -16,7 +16,8 @@ class GridViewShoes extends StatefulWidget {
 }
 
 class _GridViewShoesState extends State<GridViewShoes> {
-  List _myShoes = [{
+  List _myShoes = [
+    {
       "id": 1,
       "name": "Black Buckle Boot",
       "qte": 10,
@@ -24,7 +25,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Black",
       "taille": [38, 39, 40, 41],
       "genre": "Unisex",
-      "imageURL": "https://example.com/images/black_buckle_boot.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0001.jpg",
     },
     {
       "id": 2,
@@ -34,7 +35,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Black",
       "taille": [40, 41, 42, 43],
       "genre": "Male",
-      "imageURL": "https://example.com/images/black_lace_up_boot.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0002.jpg",
     },
     {
       "id": 3,
@@ -44,7 +45,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Brown",
       "taille": [37, 38, 39],
       "genre": "Female",
-      "imageURL": "https://example.com/images/brown_open_toe_sandals.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0003.jpg",
     },
     {
       "id": 4,
@@ -54,7 +55,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Brown",
       "taille": [39, 40, 41],
       "genre": "Male",
-      "imageURL": "https://example.com/images/casual_moccasin.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0008.jpg",
     },
     {
       "id": 5,
@@ -64,7 +65,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Navy",
       "taille": [30, 31, 32],
       "genre": "Kids",
-      "imageURL": "https://example.com/images/kids_navy_velcro_sneakers.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0010.jpg",
     },
     {
       "id": 6,
@@ -74,7 +75,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Tan",
       "taille": [40, 41, 42, 43],
       "genre": "Male",
-      "imageURL": "https://example.com/images/formal_tan_oxford.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0013.jpg",
     },
     {
       "id": 7,
@@ -84,7 +85,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Pink",
       "taille": [32, 33, 34],
       "genre": "Kids",
-      "imageURL": "https://example.com/images/pink_orthopedic_sandals.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0017.jpg",
     },
     {
       "id": 8,
@@ -94,7 +95,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Beige",
       "taille": [38, 39, 40],
       "genre": "Female",
-      "imageURL": "https://example.com/images/fur_lined_winter_boot.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0018.jpg",
     },
     {
       "id": 9,
@@ -104,7 +105,7 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Black",
       "taille": [36, 37, 38],
       "genre": "Female",
-      "imageURL": "https://example.com/images/black_high_heel_boot.jpg",
+      "imageURL": "assets/images/IMG-20241130-WA0019.jpg",
     },
     {
       "id": 10,
@@ -114,9 +115,9 @@ class _GridViewShoesState extends State<GridViewShoes> {
       "couleur": "Brown",
       "taille": [39, 40, 41, 42],
       "genre": "Unisex",
-      "imageURL": "https://example.com/images/casual_brown_loafer.jpg",
-    },];
-  // List categories = ["LifeStyle", "Basketball", "Running", "Football", "Women"];
+      "imageURL": "assets/images/IMG-20241130-WA0020.jpg",
+    },
+    ];
   List fileNames = [
     // "assets/files/myshoes.json",
     "assets/files/myshoes_basketball.json",
@@ -158,8 +159,9 @@ class _GridViewShoesState extends State<GridViewShoes> {
                 ),
                 itemCount: _myShoes.length,
                 itemBuilder: (context, index) {
+                  final item = _myShoes[index];
                   return Card(
-                    key: ValueKey(_myShoes[index]["id"]?? "Description not available"),
+                    key: ValueKey(item["id"]?? "Description not available"),
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -170,91 +172,98 @@ class _GridViewShoesState extends State<GridViewShoes> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => ShoesDetails(
-                                    shoeName: _myShoes[index]["qte"]?? "Description not available")));
+                                    shoeName: _myShoes[index]["name"]?? "Description not available",
+                                    imagePath:_myShoes[index]["imageURL"]?? "Description not available" ,)));
                       },
-                      child: Container(
-                        // height: 200,
-                        // width: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  // border: Border.all(color: Colors.black, width: 4),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Transform.rotate(
-                                    angle: -math.pi / 6,
+                      child: Expanded(
+                        child: Container(
+                          height: 320,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    // border: Border.all(color: Colors.black, width: 4),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Container(
+                                    width: 200,
+                                    height: 120,
                                     child: Image.asset(
+                                      
                                       _myShoes[index]["imageURL"]?? "Description not available",
                                       alignment: Alignment.topCenter,
-                                    )),
-                              ),
-                              Container(
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                          "Men's Shoes + ${widget.currenIndexOfCategory}",
-                                          style: TextStyle(
-                                            color: HelperFunctions().myGreen,
-                                            fontWeight: FontWeight.w600,
-                                          )),
-                                      HelperFunctions()
-                                          .boxHeight15(giveHeight: 5),
-                                      Text(_myShoes[index]["desc"]?? "Description not available",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w900,
-                                            fontSize: 18,
-                                          )),
-                                      HelperFunctions()
-                                          .boxHeight15(giveHeight: 10),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("₹${_myShoes[index]["prix"]}",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w900,
-                                                fontSize: 17,
-                                              )),
-                                          InkWell(
-                                            onTap: () {
-                                              showDialog(
-                                                  context: context,
-                                                  builder: (context) =>
-                                                      HelperFunctions()
-                                                          .myAlertDialog(
-                                                        context: context,
-                                                      ));
-                                            },
-                                            child: CircleAvatar(
-                                              backgroundColor: Colors.black,
-                                              child: Icon(
-                                                Icons
-                                                    .add_shopping_cart_outlined,
-                                                size: 20,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                      
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                Container(
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: 8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                            _myShoes[index]["genre"],
+                                            style: TextStyle(
+                                              color: HelperFunctions().myGreen,
+                                              fontWeight: FontWeight.w600,
+                                            )),
+                                        HelperFunctions()
+                                            .boxHeight15(giveHeight: 5),
+                                        Text(_myShoes[index]["name"]?? "Description not available",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w900,
+                                              fontSize: 18,
+                                            )),
+                                        HelperFunctions()
+                                            .boxHeight15(giveHeight: 3),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text("${_myShoes[index]["prix"]}Dt",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w900,
+                                                  fontSize: 17,
+                                                )),
+                                            InkWell(
+                                              onTap: () {
+                                                showDialog(
+                                                    context: context,
+                                                    builder: (context) =>
+                                                        HelperFunctions()
+                                                            .myAlertDialog(
+                                                          context: context,
+                                                        ));
+                                              },
+                                              child: CircleAvatar(
+                                                backgroundColor: Colors.black,
+                                                child: Icon(
+                                                  Icons
+                                                      .add_shopping_cart_outlined,
+                                                  size: 20,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

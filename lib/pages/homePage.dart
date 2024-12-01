@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
             ),
           )
         ],
-        title: Text("Practice UI", style: TextStyle(color: Colors.black)),
+        title: Text("Sabet sfeksi", style: TextStyle(color: Colors.black)),
       ),
       body: SingleChildScrollView(
         child: Padding(
